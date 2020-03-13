@@ -1,0 +1,150 @@
+{
+    "swagger": "2.0",
+    "info": {
+      "version": "1.0.0",
+      "title": "wait-staff-backend",
+      "description": "The idea is to help merchants create their own campaigns"
+    },
+    "schemes": ["https"],
+    "basePath": "/api/v1",
+    "consumes": ["application/json"],
+    "paths": {
+      "/": {
+        "get": {
+          "description": "Get Landing Page",
+          "summary": "This confirms the api is online and running as expected",
+          "tags": ["Home"],
+          "produces": ["application/json"],
+          "responses": {
+            "200": {
+              "description": "success"
+            }
+          }
+        }
+      },
+      "/api-docs": {
+        "get": {
+          "description": "Get API Documentation Page",
+          "summary": "This shows the API documentation page",
+          "tags": ["API"],
+          "produces": ["application/json"],
+          "responses": {
+            "200": {
+              "description": "Success"
+            }
+          }
+        }
+      },
+      "/campaigns": {
+        "post": {
+          "description": "Creates A New Campaign",
+          "summary": "This creates a new campaign",
+          "tags": ["Create A Campaign"],
+          "produces": ["application/json"],
+          "parameters": [
+            {
+              "in": "body",
+              "name": "body",
+              "required": true,
+              "description": "This is the request body object containing the campaign's basic information",
+              "schema": {
+                "$ref": "#/requestBody/createCampaign"
+              }
+            }
+          ],
+          "responses": {
+            "201": {
+              "description": "Success"
+            },
+            "422": {
+              "description": "Unprocessable Entity"
+            }
+          }
+        },
+        "patch": {
+          "description": "Edit A Campaign",
+          "summary": "This modifies an existing campaign",
+          "tags": ["Edit A Campaign"],
+          "produces": ["application/json"],
+          "parameters": [
+            {
+              "in": "body",
+              "name": "body",
+              "required": true,
+              "description": "This is the request body object containing the modified campaign's information",
+              "schema": {
+                "$ref": "#/requestBody/modifyCampaign"
+              }
+            }
+          ],
+          "responses": {
+            "201": {
+              "description": "Success"
+            },
+            "422": {
+              "description": "Unprocessable Entity"
+            }
+          }
+        },
+        "get": {
+          "description": "Get All Campaigns",
+          "summary": "This gets all existing campaigns",
+          "tags": ["Get All Campaign"],
+          "produces": ["application/json"],
+          "responses": {
+            "200": {
+              "description": "Success"
+            },
+            "404": {
+              "description": "Not Found"
+            }
+          }
+        }
+      }
+    },
+    "requestBody": {
+      "createCampaign": {
+        "type": "object",
+        "properties": {
+          "campaignName": {
+            "type": "string"
+          },
+          "discountType": {
+            "type": "string"
+          },
+          "category": {
+            "type": "string"
+          },
+          "count": {
+            "type": "number"
+          },
+          "price": {
+            "type": "number"
+          },
+          "days": {
+            "type": "number"
+          }
+        }
+      },
+      "modifyCampaign": {
+        "type": "object",
+        "properties": {
+          "campaignName": {
+            "type": "string"
+          },
+          "category": {
+            "type": "string"
+          },
+          "count": {
+            "type": "number"
+          },
+          "price": {
+            "type": "number"
+          },
+          "days": {
+            "type": "number"
+          }
+        }
+      }
+    }
+  }
