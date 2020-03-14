@@ -1,6 +1,9 @@
 import Joi from '@hapi/joi';
 
 export default Joi.object({
+  id: Joi.string()
+    .required(),
+
   campaignName: Joi.string()
     .required(),
 
@@ -8,18 +11,33 @@ export default Joi.object({
     .valid('BOGO Discount', 'Price-Based Discount', 'Time-Based Discount')
     .required(),
 
-  category: Joi.string()
+  itemCategories: Joi.string()
     .required(),
 
-  count: Joi.number()
-    .integer()
+  minItemCount: Joi.object({
+    isOpen: Joi.boolean().required(),
+    value: Joi.number().required(),
+  })
     .required(),
 
-  price: Joi.number()
-    .integer()
+  discountPrice: Joi.object({
+    isOpen: Joi.boolean().required(),
+    value: Joi.number().required(),
+  })
     .required(),
 
-  days: Joi.number()
-    .integer()
+  numOfDays: Joi.object({
+    isOpen: Joi.boolean().required(),
+    value: Joi.number().required(),
+  })
+    .required(),
+
+  validTill: Joi.string()
+    .required(),
+
+  totalRedemptions: Joi.number()
+    .required(),
+
+  isCategoryMenuOpen: Joi.boolean()
     .required(),
 });

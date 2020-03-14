@@ -3,14 +3,32 @@ import Joi from '@hapi/joi';
 export default Joi.object({
   campaignName: Joi.string(),
 
-  category: Joi.string(),
+  itemCategories: Joi.string(),
 
-  count: Joi.number()
-    .integer(),
+  minItemCount: Joi.object({
+    isOpen: Joi.boolean().required(),
+    value: Joi.number().required(),
+  })
+    .required(),
 
-  price: Joi.number()
-    .integer(),
+  discountPrice: Joi.object({
+    isOpen: Joi.boolean().required(),
+    value: Joi.number().required(),
+  })
+    .required(),
 
-  days: Joi.number()
-    .integer(),
+  numOfDays: Joi.object({
+    isOpen: Joi.boolean().required(),
+    value: Joi.number().required(),
+  })
+    .required(),
+
+  validTill: Joi.string()
+    .required(),
+
+  totalRedemptions: Joi.number()
+    .required(),
+
+  isCategoryMenuOpen: Joi.boolean()
+    .required(),
 });

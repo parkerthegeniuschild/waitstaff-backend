@@ -1,13 +1,16 @@
 import { Schema, model } from 'mongoose';
 
 const campaignSchema = new Schema({
+  id: String,
   campaignName: String,
-  category: String,
+  itemCategories: String,
   discountType: String,
-  count: Number,
-  price: Number,
-  days: Number,
-  redemptions: { type: Number, default: 0 },
+  minItemCount: Object,
+  discountPrice: Object,
+  numOfDays: Object,
+  totalRedemptions: Number,
+  isCategoryMenuOpen: Boolean,
+  validTill: String,
   createdAt: { type: Date, default: Date.now },
 }, { versionKey: false });
 

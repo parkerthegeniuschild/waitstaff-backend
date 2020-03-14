@@ -106,23 +106,35 @@
       "createCampaign": {
         "type": "object",
         "properties": {
+          "id": {
+            "type": "string"
+          },
           "campaignName": {
             "type": "string"
           },
-          "discountType": {
+          "campaignType": {
             "type": "string"
           },
-          "category": {
+          "itemCategories": {
             "type": "string"
           },
-          "count": {
+          "minItemCount": {
+            "type": "object"
+          },
+          "discountPrice": {
+            "type": "object"
+          },
+          "numOfDays": {
+            "type": "object"
+          },
+          "validTill": {
+            "type":"string"
+          },
+          "totalRedemptions": {
             "type": "number"
           },
-          "price": {
-            "type": "number"
-          },
-          "days": {
-            "type": "number"
+          "isCategoryMenuOpen": {
+            "type": "boolean"
           }
         }
       },
@@ -132,17 +144,26 @@
           "campaignName": {
             "type": "string"
           },
-          "category": {
+          "itemCategories": {
             "type": "string"
           },
-          "count": {
+          "minItemCount": {
+            "type": "object"
+          },
+          "discountPrice": {
+            "type": "object"
+          },
+          "numOfDays": {
+            "type": "object"
+          },
+          "validTill": {
+            "type":"string"
+          },
+          "totalRedemptions": {
             "type": "number"
           },
-          "price": {
-            "type": "number"
-          },
-          "days": {
-            "type": "number"
+          "isCategoryMenuOpen": {
+            "type": "boolean"
           }
         }
       }
