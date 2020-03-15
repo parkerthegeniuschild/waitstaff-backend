@@ -19,7 +19,11 @@ export default class CampaignController {
    * @returns {Object} the newly created campaign
    */
   static async create(req, res) {
-    const campaign = pick(req.body, ['campaignName', 'discountType', 'category', 'count', 'price', 'days']);
+    const campaign = pick(req.body, ['id', 'campaignName', 'discountType', 'itemCategories', 'count',
+      'minItemCount', 'discountPrice', 'numOfDays', 'validTill', 
+      'totalRedemptions', 'isCategoryMenuOpen']);
+
+      console.log(campaign);
 
     try {
       const newCampaign = await Campaign.create(campaign);
