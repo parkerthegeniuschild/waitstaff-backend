@@ -141,6 +141,9 @@
       "modifyCampaign": {
         "type": "object",
         "properties": {
+          "id": {
+            "type": "string"
+          },
           "campaignName": {
             "type": "string"
           },

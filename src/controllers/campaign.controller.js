@@ -20,7 +20,7 @@ export default class CampaignController {
    */
   static async create(req, res) {
     const campaign = pick(req.body, ['id', 'campaignName', 'discountType', 'itemCategories', 'count',
-      'minItemCount', 'discountPrice', 'numOfDays', 'validTill', 
+      'minItemCount', 'discountPrice', 'numOfDays', 'validTill',
       'totalRedemptions', 'isCategoryMenuOpen']);
 
     try {
