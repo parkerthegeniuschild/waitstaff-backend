@@ -23,8 +23,6 @@ export default class CampaignController {
       'minItemCount', 'discountPrice', 'numOfDays', 'validTill', 
       'totalRedemptions', 'isCategoryMenuOpen']);
 
-      console.log(campaign);
-
     try {
       const newCampaign = await Campaign.create(campaign);
 
@@ -41,7 +39,7 @@ export default class CampaignController {
    * @return {Object} the latest campaign info after it has been updated
    */
   static async edit(req, res) {
-    const { id: _id } = req.params;
+    const { id } = req.params;
     const info = { ...req.body };
 
     // if nothing was changed, then update nothing
@@ -51,12 +49,12 @@ export default class CampaignController {
 
     try {
       // check if the campaign is existing firstly
-      const campaign = await Campaign.findOne({ _id });
+      const campaign = await Campaign.findOne({ id });
 
       if (!campaign) return notFound('campaign', res);
 
       // if the campaign exists, then update it
-      await Campaign.updateOne({ _id }, info);
+      await Campaign.updateOne({ id }, info);
 
       return updated('campaign', res);
     } catch (e) {

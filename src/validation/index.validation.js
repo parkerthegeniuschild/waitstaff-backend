@@ -14,7 +14,6 @@ export default {
     const { body: form } = req;
 
     try {
-      await trimInputs(form);
       await addCampaignSchema.validateAsync(form, { abortEarly: false });
 
       return next();
@@ -28,7 +27,6 @@ export default {
     const { body: form } = req;
 
     try {
-      await trimInputs(form);
       await editCampaignSchema.validateAsync(form, { abortEarly: false });
 
       return next();

@@ -6,22 +6,36 @@ export default Joi.object({
   itemCategories: Joi.string(),
 
   minItemCount: Joi.object({
-    isOpen: Joi.boolean().required(),
-    value: Joi.number().required(),
-  })
+	isOpen: Joi.boolean().required(),
+		value:  [
+        Joi.string(),
+        Joi.number()
+    ],
+})
     .required(),
 
-  discountPrice: Joi.object({
-    isOpen: Joi.boolean().required(),
-    value: Joi.number().required(),
-  })
+  discountPrice: Joi.object({  
+        isOpen: Joi.boolean().requir
+ed(),
+                value:  [
+        Joi.string(),
+        Joi.number()
+    ],
+})
     .required(),
 
-  numOfDays: Joi.object({
-    isOpen: Joi.boolean().required(),
-    value: Joi.number().required(),
-  })
+  numOfDays:Joi.object({  
+        isOpen: Joi.boolean().required(),
+                value:  [
+        Joi.string(),
+        Joi.number()
+    ],
+})
     .required(),
+
+	discountType: Joi.string(),
+
+	id: Joi.string().required(),
 
   validTill: Joi.string()
     .required(),
